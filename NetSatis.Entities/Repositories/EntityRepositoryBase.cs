@@ -28,7 +28,7 @@ namespace NetSatis.Entities.Repositories
             return context.Set<TEntity>().Where(filter).SingleOrDefault(filter);
         }
 
-        public void AddOrUpdate(TContext context, TEntity entity)
+        public bool AddOrUpdate(TContext context, TEntity entity)
         {
             TValidator validator = new TValidator();
             var validationResult = ValidatorTool.Validate(validator, entity);
@@ -38,7 +38,8 @@ namespace NetSatis.Entities.Repositories
 
             }
 
-           
+            return validationResult;
+
         }
 
         public void Delete(TContext context, Expression<Func<TEntity, bool>> filter)

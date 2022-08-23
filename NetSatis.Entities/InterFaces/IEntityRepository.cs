@@ -15,7 +15,7 @@ namespace NetSatis.Entities
         where TEntity : class,IEntity, new()
 
     {
-         void AddOrUpdate(TContex context, TEntity entity);
+         bool AddOrUpdate(TContex context, TEntity entity);
          void Delete(TContex context, Expression<Func<TEntity, bool>> filter);
          void Save(TContex context);
 

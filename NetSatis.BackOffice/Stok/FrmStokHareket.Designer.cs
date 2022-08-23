@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStokHareket));
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lblBaslik = new DevExpress.XtraEditors.LabelControl();
             this.grpMenu = new DevExpress.XtraEditors.GroupControl();
             this.btnKapat = new DevExpress.XtraEditors.SimpleButton();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -101,23 +101,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.grGenelStok)).BeginInit();
             this.SuspendLayout();
             // 
-            // labelControl1
+            // lblBaslik
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Appearance.Options.UseTextOptions = true;
-            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelControl1.ImageOptions.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelControl1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("labelControl1.ImageOptions.Image")));
-            this.labelControl1.Location = new System.Drawing.Point(0, 0);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(1397, 67);
-            this.labelControl1.TabIndex = 1;
-            this.labelControl1.Text = "Stok Kartları";
+            this.lblBaslik.Appearance.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblBaslik.Appearance.Options.UseFont = true;
+            this.lblBaslik.Appearance.Options.UseTextOptions = true;
+            this.lblBaslik.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblBaslik.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblBaslik.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.lblBaslik.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblBaslik.ImageOptions.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblBaslik.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("lblBaslik.ImageOptions.Image")));
+            this.lblBaslik.Location = new System.Drawing.Point(0, 0);
+            this.lblBaslik.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.lblBaslik.Name = "lblBaslik";
+            this.lblBaslik.Size = new System.Drawing.Size(1397, 67);
+            this.lblBaslik.TabIndex = 1;
+            this.lblBaslik.Text = "Stok Kartları";
             // 
             // grpMenu
             // 
@@ -141,6 +141,7 @@
             this.btnKapat.Size = new System.Drawing.Size(90, 51);
             this.btnKapat.TabIndex = 0;
             this.btnKapat.Text = "Kapat";
+            this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
             // 
             // ımageList1
             // 
@@ -159,6 +160,7 @@
             this.btnAra.Size = new System.Drawing.Size(90, 51);
             this.btnAra.TabIndex = 0;
             this.btnAra.Text = "Ara";
+            this.btnAra.Click += new System.EventHandler(this.btnAra_Click);
             // 
             // btnGüncelle
             // 
@@ -169,6 +171,7 @@
             this.btnGüncelle.Size = new System.Drawing.Size(90, 51);
             this.btnGüncelle.TabIndex = 0;
             this.btnGüncelle.Text = "Güncelle";
+            this.btnGüncelle.Click += new System.EventHandler(this.btnGüncelle_Click);
             // 
             // splitter1
             // 
@@ -307,6 +310,8 @@
             // colKdv
             // 
             this.colKdv.Caption = "KDV(%)";
+            this.colKdv.DisplayFormat.FormatString = "\'%\'0";
+            this.colKdv.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colKdv.FieldName = "Kdv";
             this.colKdv.Name = "colKdv";
             this.colKdv.OptionsColumn.AllowEdit = false;
@@ -316,6 +321,8 @@
             // colBirimFiyati
             // 
             this.colBirimFiyati.Caption = "Birim Fiyatı";
+            this.colBirimFiyati.DisplayFormat.FormatString = "C2";
+            this.colBirimFiyati.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colBirimFiyati.FieldName = "BirimFiyati";
             this.colBirimFiyati.Name = "colBirimFiyati";
             this.colBirimFiyati.OptionsColumn.AllowEdit = false;
@@ -325,6 +332,8 @@
             // colIndirimOrani
             // 
             this.colIndirimOrani.Caption = "Ind.Oran(%)";
+            this.colIndirimOrani.DisplayFormat.FormatString = "\'%\'0";
+            this.colIndirimOrani.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colIndirimOrani.FieldName = "IndirimOrani";
             this.colIndirimOrani.Name = "colIndirimOrani";
             this.colIndirimOrani.OptionsColumn.AllowEdit = false;
@@ -334,6 +343,8 @@
             // colIndirimTutari
             // 
             this.colIndirimTutari.Caption = "Ind.Tutar";
+            this.colIndirimTutari.DisplayFormat.FormatString = "C2";
+            this.colIndirimTutari.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colIndirimTutari.FieldName = "IndirimTutari";
             this.colIndirimTutari.Name = "colIndirimTutari";
             this.colIndirimTutari.OptionsColumn.AllowEdit = false;
@@ -343,6 +354,8 @@
             // colToplamTutar
             // 
             this.colToplamTutar.Caption = "Toplam Tutar";
+            this.colToplamTutar.DisplayFormat.FormatString = "C2";
+            this.colToplamTutar.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colToplamTutar.FieldName = "ToplamTutar";
             this.colToplamTutar.Name = "colToplamTutar";
             this.colToplamTutar.OptionsColumn.AllowEdit = false;
@@ -373,6 +386,8 @@
             // colTarih
             // 
             this.colTarih.Caption = "Tarih";
+            this.colTarih.DisplayFormat.FormatString = "d";
+            this.colTarih.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colTarih.FieldName = "Tarih";
             this.colTarih.Name = "colTarih";
             this.colTarih.OptionsColumn.AllowEdit = false;
@@ -382,6 +397,8 @@
             // colSaat
             // 
             this.colSaat.Caption = "Saat";
+            this.colSaat.DisplayFormat.FormatString = "t";
+            this.colSaat.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colSaat.FieldName = "Tarih";
             this.colSaat.Name = "colSaat";
             this.colSaat.Visible = true;
@@ -453,6 +470,7 @@
             this.colDepolarDepoKodu.Caption = "Depo Kodu";
             this.colDepolarDepoKodu.FieldName = "DepoKodu";
             this.colDepolarDepoKodu.Name = "colDepolarDepoKodu";
+            this.colDepolarDepoKodu.OptionsColumn.AllowEdit = false;
             this.colDepolarDepoKodu.Visible = true;
             this.colDepolarDepoKodu.VisibleIndex = 0;
             // 
@@ -461,6 +479,7 @@
             this.colDepolarDepoAdi.Caption = "Depo Adı";
             this.colDepolarDepoAdi.FieldName = "DepoAdi";
             this.colDepolarDepoAdi.Name = "colDepolarDepoAdi";
+            this.colDepolarDepoAdi.OptionsColumn.AllowEdit = false;
             this.colDepolarDepoAdi.Visible = true;
             this.colDepolarDepoAdi.VisibleIndex = 1;
             // 
@@ -469,6 +488,7 @@
             this.colDepolarStokGiris.Caption = "Stok Giriş";
             this.colDepolarStokGiris.FieldName = "StokGiris";
             this.colDepolarStokGiris.Name = "colDepolarStokGiris";
+            this.colDepolarStokGiris.OptionsColumn.AllowEdit = false;
             this.colDepolarStokGiris.Visible = true;
             this.colDepolarStokGiris.VisibleIndex = 2;
             // 
@@ -477,6 +497,7 @@
             this.colDepolarStokCıikis.Caption = "Stok Çıkış";
             this.colDepolarStokCıikis.FieldName = "StokCikis";
             this.colDepolarStokCıikis.Name = "colDepolarStokCıikis";
+            this.colDepolarStokCıikis.OptionsColumn.AllowEdit = false;
             this.colDepolarStokCıikis.Visible = true;
             this.colDepolarStokCıikis.VisibleIndex = 3;
             // 
@@ -485,6 +506,7 @@
             this.colDepolarMevcutStok.Caption = "Mevcut Stok";
             this.colDepolarMevcutStok.FieldName = "MevcutStok";
             this.colDepolarMevcutStok.Name = "colDepolarMevcutStok";
+            this.colDepolarMevcutStok.OptionsColumn.AllowEdit = false;
             this.colDepolarMevcutStok.Visible = true;
             this.colDepolarMevcutStok.VisibleIndex = 4;
             // 
@@ -524,6 +546,7 @@
             this.colGenelBilgi.Caption = "Bilgi";
             this.colGenelBilgi.FieldName = "Bilgi";
             this.colGenelBilgi.Name = "colGenelBilgi";
+            this.colGenelBilgi.OptionsColumn.AllowEdit = false;
             this.colGenelBilgi.Visible = true;
             this.colGenelBilgi.VisibleIndex = 0;
             // 
@@ -532,6 +555,7 @@
             this.colGenelKayitSayisi.Caption = "Kayıt Sayısı";
             this.colGenelKayitSayisi.FieldName = "KayitSayisi";
             this.colGenelKayitSayisi.Name = "colGenelKayitSayisi";
+            this.colGenelKayitSayisi.OptionsColumn.AllowEdit = false;
             this.colGenelKayitSayisi.Visible = true;
             this.colGenelKayitSayisi.VisibleIndex = 1;
             // 
@@ -540,6 +564,7 @@
             this.colGenelToplam.Caption = "Toplam";
             this.colGenelToplam.FieldName = "Toplam";
             this.colGenelToplam.Name = "colGenelToplam";
+            this.colGenelToplam.OptionsColumn.AllowEdit = false;
             this.colGenelToplam.Visible = true;
             this.colGenelToplam.VisibleIndex = 2;
             // 
@@ -551,7 +576,7 @@
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.grpMenu);
-            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.lblBaslik);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -589,7 +614,7 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl lblBaslik;
         private DevExpress.XtraEditors.GroupControl grpMenu;
         private DevExpress.XtraEditors.SimpleButton btnKapat;
         private DevExpress.XtraEditors.SimpleButton btnAra;

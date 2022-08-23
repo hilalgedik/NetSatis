@@ -15,21 +15,53 @@ namespace NetSatis.BackOffice.Stok
 {
     public partial class FrmStokHareket : DevExpress.XtraEditors.XtraForm
     {
-        StokDal stokDal = new StokDal();
+        
         StokHareketDal stokHareketDal = new StokHareketDal();
         NetSatisContext context = new NetSatisContext();
         private string _stokKodu;
-        public FrmStokHareket(string stokKodu)
+        public FrmStokHareket(string stokKodu, string stokAdi)
         {
             InitializeComponent();
             _stokKodu = stokKodu;
+            lblBaslik.Text = _stokKodu + "-" + stokAdi + " Hareketleri ";
+
         }
 
         private void FrmStokHareket_Load(object sender, EventArgs e)
         {
+            Guncelle();
+        }
+
+        private void Guncelle()
+        {
             grcStokHareket.DataSource = stokHareketDal.GetAll(context, c => c.StokKodu == _stokKodu);
-            grcGenelStok.DataSource = stokDal.GetGenelStok(context, _stokKodu);
-            grcDepoStok.DataSource = stokDal.GetDepoStok(context, _stokKodu);
+            grcGenelStok.DataSource = stokHareketDal.GetGenelStok(context, _stokKodu);
+            grcDepoStok.DataSource = stokHareketDal.GetDepoStok(context, _stokKodu);
+
+        }
+
+        private void btnKapat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+        private void btnGüncelle_Click(object sender, EventArgs e)
+        {
+            Guncelle();
+        }
+
+        private void btnAra_Click(object sender, EventArgs e)
+        {
+            if (grStokHareket.OptionsView.ShowAutoFilterRow==true)
+            {
+                grStokHareket.OptionsView.ShowAutoFilterRow = false;
+            }
+            else
+            {
+                grStokHareket.OptionsView.ShowAutoFilterRow = true;
+            }
+            
         }
     }
 }

@@ -13,7 +13,7 @@ using NetSatis.Entities.Validations;
 
 namespace NetSatis.BackOffice.Stok
 {
-    
+
     public partial class FrmStokIslem : Form
     {
         private Entities.Tables.Stok _entity;
@@ -42,7 +42,7 @@ namespace NetSatis.BackOffice.Stok
             btnOzelKod1.DataBindings.Add("Text", _entity, "OzelKod1", false, DataSourceUpdateMode.OnPropertyChanged);
             btnOzelKod2.DataBindings.Add("Text", _entity, "OzelKod2", false, DataSourceUpdateMode.OnPropertyChanged);
             btnOzelKod3.DataBindings.Add("Text", _entity, "OzelKod3", false, DataSourceUpdateMode.OnPropertyChanged);
-            btnOzelKod4.DataBindings.Add("Text", _entity, "OzelKod4", false, DataSourceUpdateMode.OnPropertyChanged); 
+            btnOzelKod4.DataBindings.Add("Text", _entity, "OzelKod4", false, DataSourceUpdateMode.OnPropertyChanged);
             calcAlisKdv.DataBindings.Add("EditValue", _entity, "AlisKdv", true, DataSourceUpdateMode.OnPropertyChanged, 0, "'%'0");
             calcSatisKdv.DataBindings.Add("EditValue", _entity, "SatisKdv", true, DataSourceUpdateMode.OnPropertyChanged, 0, "'%'0");
             calcAlisFiyati1.DataBindings.Add("EditValue", _entity, "AlisFiyati1", true, DataSourceUpdateMode.OnPropertyChanged, 0, "C2");
@@ -53,7 +53,7 @@ namespace NetSatis.BackOffice.Stok
             calcSatisFiyati3.DataBindings.Add("EditValue", _entity, "SatisFiyati3", true, DataSourceUpdateMode.OnPropertyChanged, 0, "C2");
         }
 
-       
+
 
         private void FrmStokIslem_Load(object sender, EventArgs e)
         {
@@ -62,9 +62,12 @@ namespace NetSatis.BackOffice.Stok
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            stokDal.AddOrUpdate(context,_entity);
-            stokDal.Save(context);
-            this.Close();
+
+            if (stokDal.AddOrUpdate(context, _entity))
+            {
+                stokDal.Save(context);
+                this.Close();
+            }
 
         }
 
